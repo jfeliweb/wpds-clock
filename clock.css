@@ -14,6 +14,7 @@
   display: block;
   float: none;
   position: relative;
+  padding-bottom: 0.2em;
 }
 
 .clock ul {
