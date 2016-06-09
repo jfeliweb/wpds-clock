@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Thu Jun 09 2016 09:06:20 GMT+0200 (W. Europe Standard "
 "Time)\n"
-"PO-Revision-Date: Thu Jun 09 2016 09:45:57 GMT+0200 (W. Europe Standard "
+"PO-Revision-Date: Thu Jun 09 2016 12:51:15 GMT+0200 (W. Europe Standard "
 "Time)\n"
 "Last-Translator: nicolas <mail@nicu.ch>\n"
 "Language-Team: \n"
@@ -24,6 +24,26 @@ msgstr ""
 "X-Loco-Target-Locale: de_DE\n"
 "X-Generator: Loco - https://localise.biz/"
 
+#: ../wpds-clock.php:49
+msgid "Locale"
+msgstr "Locale"
+
+#: ../wpds-clock.php:51 ../wpds-clock.php:68
+msgid "(Use client default)"
+msgstr "(Standardwert des Browsers verwenden)"
+
+#: ../wpds-clock.php:66
+msgid "Timezone"
+msgstr "Zeitzone"
+
+#. Name of the plugin
+msgid "WPDS Clock Widget"
+msgstr "WPDS Uhr Widget"
+
+#. URI of the plugin
+msgid "http://pixelydo.com/work/wordpress-digital-signage"
+msgstr "http://pixelydo.com/work/wordpress-digital-signage"
+
 #. Description of the plugin
 msgid ""
 "The clock for WPDS. Many thanks to <a href=\"https://twitter.com/Bluxart\" "
@@ -35,18 +55,6 @@ msgstr ""
 "//twitter.com/Bluxart\" target=\"_blank\">@Bluxart</a> für <a href=\"http://www."
 "alessioatzeni.com/blog/css3-digital-clock-with-jquery\" target=\"_blank\">die "
 "originale Uhr</a>."
-
-#: ../wpds-clock.php:47
-msgid "Nothing to do here."
-msgstr "Hier gibt es nichts zu tun."
-
-#. Name of the plugin
-msgid "WPDS Clock Widget"
-msgstr "WPDS Uhr Widget"
-
-#. URI of the plugin
-msgid "http://pixelydo.com/work/wordpress-digital-signage"
-msgstr "http://pixelydo.com/work/wordpress-digital-signage"
 
 #. Author of the plugin
 msgid "Nate Jones"
@@ -63,7 +71,3 @@ msgstr "Uhr"
 #: ../wpds-clock.php:29
 msgid "A simple digital clock for the dock."
 msgstr "Eine einfache Digitaluhr für das Dock."
-
-#: ../wpds-clock.php:49
-msgid "12 or 24 hour"
-msgstr "12 oder 24 Stunden-Anzeige"
