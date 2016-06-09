@@ -79,7 +79,7 @@ class wpds_clock_widget extends WP_Widget {
 		echo $before_widget;
 		// Display the widget
 		echo '<script src="'. plugins_url( 'clock.js' , __FILE__ ) .'"></script>';
-		echo '<div class="clock"><ul><li id="hours"> </li><li id="point">:</li><li id="min"> </li></ul><div id="Date"></div></div>';
+		echo '<div class="clock"><ul><li id="hours"> </li><li class="clock-point">:</li><li id="min"> </li></ul><div id="Date" class="clock-date"></div></div>';
 		echo $after_widget;
 	}
 }
