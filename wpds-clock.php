@@ -38,24 +38,21 @@ class wpds_clock_widget extends WP_Widget {
 
 		// Check values
 		if( $instance) {
-			 $select = esc_attr($instance['select']);
+			 $locale = esc_attr($instance['locale']);
+			 $timezone = esc_attr($instance['timezone']);
 		} else {
-		     $place = '';
-		     $select = '';
+			$locale = '';
+			$timezone = '';
 		}
 		?>
-<p><?=__('Nothing to do here.', 'wpds-clock')?></p>
-<p style="display:none;">
-	<label for="<?php echo $this->get_field_id('select'); ?>"><?php _e('12 or 24 hour', 'wpds-clock'); ?></label>
-	<select name="<?php echo $this->get_field_name('select'); ?>" id="<?php echo $this->get_field_id('select'); ?>" class="widefat">
-	<?php
-	$options = array('12', '24');
-	foreach ($options as $option) {
-		echo '<option value="' . $option . '" id="' . $option . '"', $select == $option ? ' selected="selected"' : '', '>', $option, '</option>';
-	}
-	?>
-	</select>
-</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('locale'); ?>"><?php _e('Locale', 'wpds-clock'); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id('locale'); ?>" name="<?php echo $this->get_field_name('locale'); ?>" type="text" value="<?php echo $locale; ?>" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('timezone'); ?>"><?php _e('Timezone', 'wpds-clock'); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id('timezone'); ?>" name="<?php echo $this->get_field_name('timezone'); ?>" type="text" value="<?php echo $timezone; ?>" />
+		</p>
 		<?php
 	}
 
@@ -65,7 +62,8 @@ class wpds_clock_widget extends WP_Widget {
 	function update($new_instance, $old_instance) {
 		$instance = $old_instance;
 		// Fields
-		$instance['select'] = strip_tags($new_instance['select']);
+		$instance['locale'] = strip_tags($new_instance['locale']);
+		$instance['timezone'] = strip_tags($new_instance['timezone']);
 		return $instance;
 	}
 
@@ -75,10 +73,18 @@ class wpds_clock_widget extends WP_Widget {
 	function widget($args, $instance) {
 		extract( $args );
 		// these are the widget options
-		$select = $instance['select'];
+		$locale = $instance['locale'];
+		$timezone = $instance['timezone'];
 		echo $before_widget;
 		// Display the widget
-		echo '<div class="clock"><ul><li class="clock-hours"> </li><li class="clock-point">:</li><li class="clock-minutes"> </li></ul><div class="clock-date"></div></div>';
+		echo '<div class="clock"';
+		if (!empty($locale)) {
+			echo ' data-locale="' . $locale . '"';
+		}	
+		if (!empty($timezone)) {
+			echo ' data-timezone="' . $timezone . '"';
+		}	
+		echo '><ul><li class="clock-hours"> </li><li class="clock-point">:</li><li class="clock-minutes"> </li></ul><div class="clock-date"></div></div>';
 		echo $after_widget;
 	}
 }
@@ -99,7 +105,9 @@ function wpds_clock_load_styles()
 	wp_register_style( 'wpds_clock-style', plugins_url( '/clock.css', __FILE__ ) );
 	wp_enqueue_style( 'wpds_clock-style' );
 
-	wp_register_script( 'wpds-clock-script', plugins_url( '/clock.js', __FILE__ ), array('jquery'), false, true );
+	wp_register_script( 'moment-js', plugins_url( '/moment-with-locales.min.js', __FILE__ ), array(), false, true );
+	wp_register_script( 'moment-timezone-js', plugins_url( '/moment-timezone-with-data.min.js', __FILE__ ), array('moment-js'), false, true );
+	wp_register_script( 'wpds-clock-script', plugins_url( '/clock.js', __FILE__ ), array('jquery', 'moment-timezone-js'), false, true );
 	wp_enqueue_script( 'wpds-clock-script' );
 }
 add_action( 'wp_enqueue_scripts', 'wpds_clock_load_styles' );

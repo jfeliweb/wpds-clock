@@ -1,3 +1,4 @@
+
 jQuery(document).ready(function ($) {
 
 	wpdsClockUpdate();
@@ -14,21 +15,21 @@ function wpdsClockUpdate() {
 
 	var newDate = new Date();
 
-	// Create a newDate() object and extract the minutes of the current time on the visitor's
-	var minutes = newDate.getMinutes();
+	var now = moment();
+	jQuery('.clock').each(function(){
 
-	// Add a leading zero to the minutes value
-	jQuery(".clock-minutes").html(( minutes < 10 ? "0" : "" ) + minutes);
+		var locale = jQuery(this).attr('data-locale');
+		if (locale) {
+			now.locale(locale);
+		}
 
-	// Create a newDate() object and extract the hours of the current time on the visitor's
-	var hours = newDate.getHours();
-	if(hours>=13){
-		hours -= 12
-	};
+		var timezone = jQuery(this).attr('data-timezone');
+		if (timezone) {
+			now = now.tz(timezone);
+		}
 
-	// Add a leading zero to the hours value
-	jQuery(".clock-hours").html(hours);
-
-	// Output the day, date, month and year
-	jQuery('.clock-date').html(dayNames[newDate.getDay()] + ", " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+		jQuery(this).find(".clock-hours").html(now.format('HH'));
+		jQuery(this).find(".clock-minutes").html(now.format('mm'));
+		jQuery(this).find('.clock-date').html(now.format('dddd LL'));
+	});
 }
