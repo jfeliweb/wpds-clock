@@ -40,9 +40,11 @@ class wpds_clock_widget extends WP_Widget {
 		if( $instance) {
 			 $locale = esc_attr($instance['locale']);
 			 $timezone = esc_attr($instance['timezone']);
+			 $animate = esc_attr($instance['animate']) == "true";
 		} else {
 			$locale = '';
 			$timezone = '';
+			$animate = false;
 		}
 		?>
 		<p>
@@ -79,6 +81,10 @@ class wpds_clock_widget extends WP_Widget {
 				});
 			</script>
 		</p>
+		<p>
+			<input type="checkbox" id="<?php echo $this->get_field_id('animate'); ?>" name="<?php echo $this->get_field_name('animate'); ?>" value="true" <?php echo $animate ? ' checked="checked"' : '';?>>
+			<label for="<?php echo $this->get_field_id('animate'); ?>"><?php _e('Animate', 'wpds-clock'); ?></label>
+		</p>
 		<?php
 	}
 
@@ -90,6 +96,7 @@ class wpds_clock_widget extends WP_Widget {
 		// Fields
 		$instance['locale'] = strip_tags($new_instance['locale']);
 		$instance['timezone'] = strip_tags($new_instance['timezone']);
+		$instance['animate'] = strip_tags($new_instance['animate']);
 		return $instance;
 	}
 
@@ -101,6 +108,7 @@ class wpds_clock_widget extends WP_Widget {
 		// these are the widget options
 		$locale = $instance['locale'];
 		$timezone = $instance['timezone'];
+		$animate = $instance['animate'] == "true";
 		echo $before_widget;
 		// Display the widget
 		echo '<div class="clock"';
@@ -110,7 +118,11 @@ class wpds_clock_widget extends WP_Widget {
 		if (!empty($timezone)) {
 			echo ' data-timezone="' . $timezone . '"';
 		}	
-		echo '><ul><li class="clock-hours"> </li><li class="clock-point">:</li><li class="clock-minutes"> </li></ul><div class="clock-date"></div></div>';
+		echo '><ul>',
+		'<li class="clock-hours"> </li>',
+		'<li class="clock-point' . ( $animate ? ' clock-point-animated' : '' ) . '">:</li>',
+		'<li class="clock-minutes"> </li>',
+		'</ul><div class="clock-date"></div></div>';
 		echo $after_widget;
 	}
 }

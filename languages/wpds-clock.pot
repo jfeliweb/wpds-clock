@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Thu Jun 09 2016 09:06:20 GMT+0200 (W. Europe Standard "
 "Time)\n"
-"POT-Revision-Date: Thu Jun 09 2016 12:50:34 GMT+0200 (W. Europe Standard "
+"POT-Revision-Date: Thu Jun 09 2016 23:43:50 GMT+0200 (W. Europe Standard "
 "Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
@@ -58,14 +58,18 @@ msgstr ""
 msgid "A simple digital clock for the dock."
 msgstr ""
 
-#: ../wpds-clock.php:49
+#: ../wpds-clock.php:51
 msgid "Locale"
 msgstr ""
 
-#: ../wpds-clock.php:51 ../wpds-clock.php:68
+#: ../wpds-clock.php:53 ../wpds-clock.php:70
 msgid "(Use client default)"
 msgstr ""
 
-#: ../wpds-clock.php:66
+#: ../wpds-clock.php:68
 msgid "Timezone"
+msgstr ""
+
+#: ../wpds-clock.php:86
+msgid "Animate"
 msgstr ""

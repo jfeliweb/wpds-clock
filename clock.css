@@ -41,6 +41,9 @@
   font-size: 7rem;
   position: relative;
   display: inline;
+}
+
+.clock ul li.clock-point-animated {
   -moz-animation: mymove 1s ease infinite;
   -webkit-animation: mymove 1s ease infinite;
 }
