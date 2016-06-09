@@ -47,11 +47,37 @@ class wpds_clock_widget extends WP_Widget {
 		?>
 		<p>
 			<label for="<?php echo $this->get_field_id('locale'); ?>"><?php _e('Locale', 'wpds-clock'); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id('locale'); ?>" name="<?php echo $this->get_field_name('locale'); ?>" type="text" value="<?php echo $locale; ?>" />
+			<select class="widefat" id="<?php echo $this->get_field_id('locale'); ?>" name="<?php echo $this->get_field_name('locale'); ?>">
+				<option value=""><?=__('(Use client default)')?></option>
+			</select>
+			<script>
+				jQuery(function(){
+					moment.locales().forEach(function(entry) {
+						jQuery('#<?php echo $this->get_field_id('locale'); ?>').append(jQuery('<option>', {
+							value: entry,
+							text: entry,
+							selected: '<?=$locale?>' == entry
+						}));
+					});
+				});
+			</script>
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('timezone'); ?>"><?php _e('Timezone', 'wpds-clock'); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id('timezone'); ?>" name="<?php echo $this->get_field_name('timezone'); ?>" type="text" value="<?php echo $timezone; ?>" />
+			<select class="widefat" id="<?php echo $this->get_field_id('timezone'); ?>" name="<?php echo $this->get_field_name('timezone'); ?>">
+				<option value=""><?=__('(Use client default)')?></option>
+			</select>
+			<script>
+				jQuery(function(){
+					moment.tz.names().forEach(function(entry) {
+						jQuery('#<?php echo $this->get_field_id('timezone'); ?>').append(jQuery('<option>', {
+							value: entry,
+							text: entry,
+							selected: '<?=$timezone?>' == entry
+						}));
+					});
+				});
+			</script>
 		</p>
 		<?php
 	}
@@ -111,3 +137,11 @@ function wpds_clock_load_styles()
 	wp_enqueue_script( 'wpds-clock-script' );
 }
 add_action( 'wp_enqueue_scripts', 'wpds_clock_load_styles' );
+
+function wpds_clock_selectively_enqueue_admin_script( $hook ) {
+	if ( 'widgets.php' == $hook ) {
+		wp_enqueue_script( 'moment-js', plugin_dir_url( __FILE__ ) . 'moment-with-locales.min.js' );
+		wp_enqueue_script( 'moment-timezone-js', plugin_dir_url( __FILE__ ) . 'moment-timezone-with-data.min.js' );
+	}
+}
+add_action( 'admin_enqueue_scripts', 'wpds_clock_selectively_enqueue_admin_script' );
