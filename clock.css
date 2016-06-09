@@ -1,0 +1,77 @@
+/*  --------------------------
+    Thanks, @Bluxart :: http://www.alessioatzeni.com/blog/css3-digital-clock-with-jquery/
+    ----------------------- */
+.clock {
+  width: 98%;
+  margin: 0 auto 0 auto;
+  padding: 0;
+  color: #fff;
+}
+
+#Date {
+  font-size: 1.875em;
+  text-align: center;
+  margin-top: 10px;
+  display: block;
+  float: none;
+  position: relative;
+}
+
+.clock ul {
+  width: 100%;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  list-style: none;
+  text-align: center;
+  display: block;
+  line-height: 1.1;
+}
+
+.clock ul li {
+  display: inline;
+  text-align: center;
+  font-size: 6rem;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+#point {
+  padding: 0;
+  font-size: 7rem;
+  position: relative;
+  display: inline;
+  -moz-animation: mymove 1s ease infinite;
+  -webkit-animation: mymove 1s ease infinite;
+}
+
+/* Simple Animation */
+@-webkit-keyframes mymove {
+  0% {
+    opacity: .8;
+  }
+
+  50% {
+    opacity: .1;
+  }
+
+  100% {
+    opacity: .8;
+  }
+}
+
+@-moz-keyframes mymove {
+  0% {
+    opacity: .8;
+  }
+
+  50% {
+    opacity: .1;
+  }
+
+  100% {
+    opacity: .8;
+  }
+}
+

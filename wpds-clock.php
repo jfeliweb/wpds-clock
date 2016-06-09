@@ -64,3 +64,11 @@ function update($new_instance, $old_instance) {
 
 // register widget
 add_action('widgets_init', create_function('', 'return register_widget("clock_plugin");'));
+
+// Load styles
+function wpds_clock_load_styles()
+{
+    wp_register_style( 'wpds_clock-style', plugins_url( '/clock.css', __FILE__ ) );
+    wp_enqueue_style( 'wpds_clock-style' );
+}
+add_action( 'wp_enqueue_scripts', 'wpds_clock_load_styles' );
