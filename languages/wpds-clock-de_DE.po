@@ -1,0 +1,69 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPDS Clock Widget\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Thu Jun 09 2016 09:06:20 GMT+0200 (W. Europe Standard "
+"Time)\n"
+"PO-Revision-Date: Thu Jun 09 2016 09:45:57 GMT+0200 (W. Europe Standard "
+"Time)\n"
+"Last-Translator: nicolas <mail@nicu.ch>\n"
+"Language-Team: \n"
+"Language: German\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Loco-Target-Locale: de_DE\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#. Description of the plugin
+msgid ""
+"The clock for WPDS. Many thanks to <a href=\"https://twitter.com/Bluxart\" "
+"target=\"_blank\">@Bluxart</a> for <a href=\"http://www.alessioatzeni."
+"com/blog/css3-digital-clock-with-jquery\" target=\"_blank\">the original "
+"clock</a>."
+msgstr ""
+"Die Uhr für WordPress Digital Signage. Vielen Dank an <a href=\"https:"
+"//twitter.com/Bluxart\" target=\"_blank\">@Bluxart</a> für <a href=\"http://www."
+"alessioatzeni.com/blog/css3-digital-clock-with-jquery\" target=\"_blank\">die "
+"originale Uhr</a>."
+
+#: ../wpds-clock.php:47
+msgid "Nothing to do here."
+msgstr "Hier gibt es nichts zu tun."
+
+#. Name of the plugin
+msgid "WPDS Clock Widget"
+msgstr "WPDS Uhr Widget"
+
+#. URI of the plugin
+msgid "http://pixelydo.com/work/wordpress-digital-signage"
+msgstr "http://pixelydo.com/work/wordpress-digital-signage"
+
+#. Author of the plugin
+msgid "Nate Jones"
+msgstr "Nate Jones"
+
+#. Author URI of the plugin
+msgid "http://pixelydo.com"
+msgstr "http://pixelydo.com"
+
+#: ../wpds-clock.php:27
+msgid "The Clock"
+msgstr "Uhr"
+
+#: ../wpds-clock.php:29
+msgid "A simple digital clock for the dock."
+msgstr "Eine einfache Digitaluhr für das Dock."
+
+#: ../wpds-clock.php:49
+msgid "12 or 24 hour"
+msgstr "12 oder 24 Stunden-Anzeige"
