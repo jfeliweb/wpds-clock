@@ -78,8 +78,7 @@ class wpds_clock_widget extends WP_Widget {
 		$select = $instance['select'];
 		echo $before_widget;
 		// Display the widget
-		echo '<script src="'. plugins_url( 'clock.js' , __FILE__ ) .'"></script>';
-		echo '<div class="clock"><ul><li id="hours"> </li><li class="clock-point">:</li><li id="min"> </li></ul><div id="Date" class="clock-date"></div></div>';
+		echo '<div class="clock"><ul><li class="clock-hours"> </li><li class="clock-point">:</li><li class="clock-minutes"> </li></ul><div class="clock-date"></div></div>';
 		echo $after_widget;
 	}
 }
@@ -97,7 +96,10 @@ add_action( 'widgets_init', 'wpds_clock_load_widget' );
 */
 function wpds_clock_load_styles()
 {
-    wp_register_style( 'wpds_clock-style', plugins_url( '/clock.css', __FILE__ ) );
-    wp_enqueue_style( 'wpds_clock-style' );
+	wp_register_style( 'wpds_clock-style', plugins_url( '/clock.css', __FILE__ ) );
+	wp_enqueue_style( 'wpds_clock-style' );
+
+	wp_register_script( 'wpds-clock-script', plugins_url( '/clock.js', __FILE__ ), array('jquery'), false, true );
+	wp_enqueue_script( 'wpds-clock-script' );
 }
 add_action( 'wp_enqueue_scripts', 'wpds_clock_load_styles' );
