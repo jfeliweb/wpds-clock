@@ -118,11 +118,11 @@ class wpds_clock_widget extends WP_Widget {
 		if (!empty($timezone)) {
 			echo ' data-timezone="' . $timezone . '"';
 		}	
-		echo '><ul>',
-		'<li class="clock-hours"> </li>',
-		'<li class="clock-point' . ( $animate ? ' clock-point-animated' : '' ) . '">:</li>',
-		'<li class="clock-minutes"> </li>',
-		'</ul><div class="clock-date"></div></div>';
+		echo '><div class="clock-time">',
+		'<span class="clock-hours"> </span>',
+		'<span class="clock-point' . ( $animate ? ' clock-point-animated' : '' ) . '">:</span>',
+		'<span class="clock-minutes"> </li>',
+		'</div><div class="clock-date"></div></div>';
 		echo $after_widget;
 	}
 }
