@@ -22,8 +22,12 @@ function wpdsClockUpdate() {
 			now = now.tz(timezone);
 		}
 
-		jQuery(this).find(".clock-hours").html(now.format('HH'));
-		jQuery(this).find(".clock-minutes").html(now.format('mm'));
+		var timeStr = now.format('LT');
+		var hours = timeStr.replace(/[:.].+.*$/, '');
+		var mins = timeStr.replace(/^.+[:.]/, '');
+
+		jQuery(this).find(".clock-hours").html(hours);
+		jQuery(this).find(".clock-minutes").html(mins);
 		jQuery(this).find('.clock-date').html(now.format('dddd LL'));
 	});
 }
