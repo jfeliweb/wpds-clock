@@ -121,7 +121,7 @@ class wpds_clock_widget extends WP_Widget {
 		echo '><div class="clock-time">',
 		'<span class="clock-hours"> </span>',
 		'<span class="clock-point' . ( $animate ? ' clock-point-animated' : '' ) . '">:</span>',
-		'<span class="clock-minutes"> </li>',
+		'<span class="clock-minutes"> </span>',
 		'</div><div class="clock-date"></div></div>';
 		echo $after_widget;
 	}
